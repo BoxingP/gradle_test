@@ -1,7 +1,21 @@
-task hello {
+task hello << {
     println 'Hello World'
 }
 
 task intro(dependsOn: hello) << {
     println "I'm Gradle"
 }
+
+task go << {
+    println 'Go, Earth'
+}
+go.doFirst {
+    println 'Go, Venus'
+}
+go.doLast {
+    println 'Go, Mars'
+}
+go << {
+    println 'Go, Jupiter'
+}
+
